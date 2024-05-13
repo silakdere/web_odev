@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="tr"> <!-- Türkçe dil belirleme -->
+<head>
+  <meta charset="UTF-8"> <!-- Türkçe karakter desteği için -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Mobil cihaz uyumluluğu için -->
+  <title>Sıla Akdere</title>
+  <!-- Font Awesome ikonları için CSS -->
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <!-- Google Fonts kullanımı -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Kullanılan fontlar -->
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow&family=Julius+Sans+One&family=Open+Sans&family=Source+Sans+Pro&display=swap" rel="stylesheet">
+  <!-- Stil dosyası -->
+  <img id="profileImage" src="image1.jpg" alt="Profil Resmi">
+
+  <script>
+    // Profil resimleri ve metinleri için dizi oluştur
+    const images = [
+        { src: 'image1.jpg', text: 'profile' },
+        { src: 'image2.jpg', text: 'ARMUT' },
+        { src: 'image3.jpg', text: 'ÇİLEK' },
+        { src: 'image4.jpg', text: 'ELMA' },
+    ];
+
+    // Şu anki profil resminin dizideki indeksini bulmak için fonksiyon
+    function findCurrentIndex() {
+        const profileImage = document.getElementById("profileImage");
+        return images.findIndex(img => img.src === profileImage.src);
+    }
+
+    // Profil resimlerini ve metinlerini değiştirmek için fonksiyon
+    function changeProfileImage() {
+        const profileImage = document.getElementById("profileImage");
+        const imageDetails = document.getElementById("imageDetails");
+        let currentIndex = findCurrentIndex();
+        currentIndex = (currentIndex + 1) % images.length; // Bir sonraki resme geç
+        profileImage.src = images[currentIndex].src;
+        imageDetails.textContent = images[currentIndex].text; // Profil resminin alternatif metnini değiştir
+    }
+
+    // Profil resmine tıklanınca yeni resme geçmek için event listener ekleyin
+    document.addEventListener('DOMContentLoaded', function() {
+        const profileImage = document.getElementById("profileImage");
+        profileImage.addEventListener('click', changeProfileImage);
+    });
+  </script>
+<script>
+
+  let currentIndex = 0;
+  const profileImage = document.getElementById("profileImage");
+
+  // Profil resmi tıklanınca bir sonraki resme geçmek için olay dinleyici
+  profileImage.addEventListener("click", function() {
+    currentIndex = (currentIndex + 1) % images.length;
+    profileImage.src = images[currentIndex];
+  });
+  // Yeni event listener'lar
+  const contactIcons = document.querySelectorAll('.contactIcon');
+    contactIcons.forEach(icon => {
+      icon.addEventListener('mouseover', function() {
+        icon.style.fontSize = '0.6cm';
+      });
+      icon.addEventListener('mouseout', function() {
+        icon.style.fontSize = '0.5cm';
+      });
+    });
+
+    const skillItems = document.querySelectorAll('.skill');
+    skillItems.forEach(item => {
+      item.addEventListener('click', function() {
+        const skillName = item.querySelector('span').textContent;
+        alert(`Clicked on skill: ${skillName}`);
+      });
+    });
+
+    const educationItem = document.querySelector('.item:nth-child(3)');
+    educationItem.addEventListener('click', function() {
+      alert('Clicked on education section');
+    });
+</script>
+
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div class="page">
+    <div class="container">
+      <div class="leftPanel">
+        <img src="profile.png"/>
+        <img id="profileImage1" src="ELMA.jpg" alt="Profil Resmi 1">
+        <img id="profileImage2" src="ARMUT.jpg" alt="Profil Resmi 2">
+        <img id="profileImage3" src="ÇİLEK.jpg" alt="Profil Resmi 3">
+        <div class="details">
+          
+          <!-- İletişim bilgileri -->
+          <div class="item bottomLineSeparator">
+            <h2>İLETİŞİM</h2>
+            <div class="smallText">
+              <p><i class="fa fa-phone contactIcon" aria-hidden="true"></i> (+90) 552 498 01 70</p>
+              <p><i class="fa fa-envelope-o contactIcon" aria-hidden="true"></i> <a href="mailto:silakdere.2002@gmail.com"> silakdere.2002@gmail.com</a></p>
+              <p><i class="fa fa-map-marker contactIcon" aria-hidden="true"></i> Ankara</p>
+              <p><i class="fa fa-linkedin-square contactIcon" aria-hidden="true"></i><a href="https://www.linkedin.com/in/sıla-akdere-59b796252"> in/sıla-akdere-59b796252</a></p>
+			  <p><i class="fa fa-instagram contactIcon" aria-hidden="true"></i><a href="https://www.instagram.com/silakdere/"> silakdere</a></p>			  
+              <p class="lastParagrafNoMarginBottom"><i class="fa fa-github contactIcon" aria-hidden="true"></i><a href="https://github.com/silakdere"> silakdere</a></p>
+            </div>
+          </div>
+          <!-- Yetenekler -->
+          <div class="item bottomLineSeparator">
+            <h2>YETENEKLER</h2>
+            <div class="smallText">
+			
+              <!-- Yetenek listesi -->
+              <div class="skill">
+                <div><span>HTML</span></div>
+                <div class="yearsOfExperience">
+                  <span class="alignright">1</span>
+                  <span class="alignleft">yıl</span>
+                </div>
+				</div>
+				<div class="skill">
+				<div><span>CSS</span></div>
+                <div class="yearsOfExperience">
+                  <span class="alignright">1</span>
+                  <span class="alignleft">yıl</span>
+                </div>
+				</div>
+				<div class="skill">
+				<div><span>JavaScript</span></div>
+                <div class="yearsOfExperience">
+                  <span class="alignright">1</span>
+                  <span class="alignleft">yıl</span>
+                </div>
+				</div>
+				<div class="skill">
+				<div><span>Python</span></div>
+                <div class="yearsOfExperience">
+                  <span class="alignright">1</span>
+                  <span class="alignleft"> yıl</span>
+                </div>
+				</div>
+				<div class="skill">
+				<div><span>SQL</span></div>
+                <div class="yearsOfExperience">
+                  <span class="alignright">1</span>
+                  <span class="alignleft">yıl</span>
+                </div>
+				</div>
+				<div class="skill">
+				<div><span>R</span></div>
+                <div class="yearsOfExperience">
+                  <span class="alignright">1</span>
+                  <span class="alignleft">yıl</span>
+                </div>
+				</div>
+				<div class="skill">
+				<div><span>C++</span></div>
+                <div class="yearsOfExperience">
+                  <span class="alignright">1</span>
+                  <span class="alignleft">yıl</span>
+                </div>
+				</div>
+				<div class="skill">
+				<div><span>Veri Görselleştirme</span></div>
+                <div class="yearsOfExperience">
+                  <span class="alignright">1</span>
+                  <span class="alignleft">yıl</span>
+                </div>
+				</div>
+				<div class="skill">
+				<div><span>Kurumsal Kaynak Planlama</span></div>
+                <div class="yearsOfExperience">
+                  <span class="alignright">1</span>
+                  <span class="alignleft">yıl</span>
+                </div>
+              </div>              
+            </div>
+          </div>
+		  
+		  
+          <!-- Eğitim bilgileri -->
+          <div class="item">
+            <h2>EĞİTİM</h2>
+            <div class="smallText">
+              <p class="bolded white">Ankara Medipol Üniversitesi</p>
+              <p>Yönetim Bilişim Sistemleri</p>
+              <p>2025</p>
+            </div>
+			</br>
+			
+            <div class="smallText">
+              <p class="bolded white">Ünlü Sınav Anadolu Lisesi</p>
+              <p>Eşit Ağırlık</p>
+              <p>2020</p>
+            </div>
+			</br>
+			
+            <div class="smallText">
+              <p class="bolded white">Aşık Veysel İlkokulu</p>
+              <p>2015</p>
+              
+            </div>
+			
+          </div>
+        </div>
+      </div>
+      <div class="rightPanel">
+        <!-- Kişisel bilgiler -->
+        <div>
+          <h1>SILA AKDERE</h1>
+          <div class="smallText">
+            <h3>Öğrenci</h3>
+          </div>
+        </div>
+		</br></br>
+        <!-- Hakkımda -->
+        <div>
+          <h2>HAKKIMDA</h2>
+          <div id="aboutMeBox">
+  <div class="smallText">
+    <p> Merhaba, benim adım Sıla.</p>
+    <p>26/02/2002'de Ankara'da doğdum ve hala burada yaşıyorum. </p>
+    <p>Ankara Medipol Üniversitesi'nde Yönetim Bilişim Sistemleri Bölümü'nde öğrenciyim.</p>
+    <p>Hobilerim arasında yazılım geliştirme, müzik dinleme, kitap okuma ve yürüyüş yapmak bulunuyor. </p>
+    <p>Hedeflerim arasında eğitimimi tamamlamak, yazılım geliştirme becerilerimi geliştirmek ve teknoloji dünyasında kendimi kanıtlamak bulunuyor.</p>
+  </div>
+</div>
+
+        <!-- İş ve sertifika deneyimi -->
+		</br>
+		 <div class="workExperience">
+          <h2>SERTİFİKALAR</h2>
+          <ul>
+            <li>
+              <div class="jobPosition">
+                <span class="bolded">Flutter</span>                
+              </div>
+              <div class="projectName bolded">
+                <span>BTK</span>
+              </div>
+              <div class="smallText">
+              </div>
+            </li>
+			 <li>
+              <div class="jobPosition">
+                <span class="bolded">Bilgisayar Kullanımı (Microsoft Office)</span>                
+              </div>
+              <div class="projectName bolded">
+                <span>Gazi Üniversitesi</span>
+              </div>
+              <div class="smallText">
+              </div>
+            </li>
+			 <li>
+              <div class="jobPosition">
+                <span class="bolded">Python ile Veri Bilimi</span>                
+              </div>
+              <div class="projectName bolded">
+                <span>Gazi Üniversitesi</span>
+              </div>
+              <div class="smallText">
+              </div>
+            </li>
+			 <li>
+              <div class="jobPosition">
+                <span class="bolded">Veri Tabanı Uygulamaları (SQL Server)</span>                
+              </div>
+              <div class="projectName bolded">
+                <span>Gazi Üniversitesi</span>
+              </div>
+              <div class="smallText">
+              </div>
+            </li>
+			<li>
+              <div class="jobPosition">
+                <span class="bolded">Sıfırdan Python</span>                
+              </div>
+              <div class="projectName bolded">
+                <span>Udemy</span>
+              </div>
+              <div class="smallText">
+              </div>
+            </li>
+			<li>
+			</li>
+          </ul>
+        </div>
+		
+        <div class="workExperience">
+          <h2>İŞ / STAJ DENEYİMİ</h2>
+          <ul>
+            <li>
+              <div class="jobPosition">
+                <span class="bolded">Intern</span>
+                <span> Haziran 2023 - Eylül 2023</span>
+              </div>
+              <div class="projectName bolded">
+                <span>Bilgi Yönetimi ve Stratejik Araştırmalar</span>
+              </div>
+              <div class="smallText">
+                <p>Coca-Cola ve ÖSGD iş birliğiyle yürütülen "Kız Kardeşim" projesinde çalışmalar yaptım.</p>                
+              </div>
+            </li>
+			<li>
+			</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>  
+</body>
+</html>
